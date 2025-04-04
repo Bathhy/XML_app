@@ -21,7 +21,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:textColor="@color/black"
             android:textStyle="bold"
             android:text="sdsad" />
 

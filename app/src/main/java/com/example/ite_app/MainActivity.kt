@@ -1,18 +1,13 @@
 package com.example.ite_app
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
+import android.widget.ImageButton
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import com.example.ite_app.databinding.ActivityMainBinding
 import com.example.ite_app.databinding.HomeActivityBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -47,7 +42,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        // Set Locale Language to Khmer --
+        AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags("km"))
         binding = HomeActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val homeAdapter = HomeAdapter(
@@ -72,17 +68,18 @@ class MainActivity : AppCompatActivity() {
                 LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
             topPlaceListView.adapter = secListAdapter
         }
-        /*   val navController = findNavController(R.id.nav_host_fragment_content_main)
-           appBarConfiguration = AppBarConfiguration(navController.graph)
-           setupActionBarWithNavController(navController, appBarConfiguration)
-   
-           binding.fab.setOnClickListener { view ->
-               Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                   .setAction("Action", null)
-                   .setAnchorView(R.id.fab).show()
-           }*/
+        val button = findViewById<ImageButton>(R.id.modeIcon)
+        button.setOnClickListener {
+            val darkModeSelected : Boolean = AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES
+            toggleThemeMode(isDarkMode = !darkModeSelected)
+        }
+
     }
 
+    private fun toggleThemeMode(isDarkMode: Boolean) {
+        if (isDarkMode) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+    }
     /* override fun onCreateOptionsMenu(menu: Menu): Boolean {
          // Inflate the menu; this adds items to the action bar if it is present.
          menuInflater.inflate(R.menu.menu_main, menu)

@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     >
 
     <androidx.viewpager2.widget.ViewPager2
@@ -18,7 +17,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewPager"
         app:tabBackground="@drawable/tab_page_selector"
@@ -31,21 +29,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/into_tab_layout"
         android:layout_width="match_parent"
-        android:layout_marginHorizontal="15dp"
+        android:layout_marginHorizontal="@dimen/extra_large"
         android:layout_height="wrap_content">
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Near Me"
+            android:text="@string/near_me"
             android:textSize="20sp"
             android:layout_weight="1"
-            android:textColor="@color/black"
             />
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="More"
-            android:textColor="@color/black"
+            android:text="@string/more"
             />
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
@@ -66,16 +62,14 @@
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Top Places"
+            android:text="@string/top_places"
             android:textSize="20sp"
             android:layout_weight="1"
-            android:textColor="@color/black"
             />
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="More"
-            android:textColor="@color/black"
+            android:text="@string/more"
             />
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
@@ -85,4 +79,12 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_width="match_parent"
         android:layout_height="0dp"/>
+    <ImageButton
+        android:id="@+id/modeIcon"
+        app:layout_constraintTop_toBottomOf="@id/secRecycle"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_mode"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
