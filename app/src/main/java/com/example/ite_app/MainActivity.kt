@@ -5,9 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil.*
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.example.ite_app.databinding.DashboardActivityBinding
 import com.example.ite_app.databinding.HomeActivityBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -38,9 +42,10 @@ val listData = listOf(
 class MainActivity : AppCompatActivity() {
 
     //    private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: HomeActivityBinding
+//    private lateinit var binding: HomeActivityBinding
+    private lateinit var binding: DashboardActivityBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+   /* override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Set Locale Language to Khmer --
         AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags("km"))
@@ -75,7 +80,13 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
+*/
+   override fun onCreate(savedInstanceState: Bundle?) {
+       super.onCreate(savedInstanceState)
+//        enableEdgeToEdge()
+       binding = DataBindingUtil.setContentView(this, R.layout.dashboard_activity)
+       onInitBottomNavigationBar()
+   }
     private fun toggleThemeMode(isDarkMode: Boolean) {
         if (isDarkMode) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
@@ -101,4 +112,34 @@ class MainActivity : AppCompatActivity() {
          return navController.navigateUp(appBarConfiguration)
                  || super.onSupportNavigateUp()
      }*/
+
+    private fun onInitBottomNavigationBar() {
+        onSetFragment(HomeFragment())
+        binding.bottomNavigationBar.onItemSelected = { id ->
+            when (id) {
+                0 -> {
+                    onSetFragment(HomeFragment())
+                }
+
+                1 -> {
+                    onSetFragment(ProductFragment())
+                }
+
+                2 -> {
+                    onSetFragment(FavoriteFragment())
+                }
+
+                3 -> {
+                    onSetFragment(ContactFragment())
+                }
+            }
+        }
+    }
+
+    private fun onSetFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragementContainerView, fragment)
+            commitNow()
+        }
+    }
 }
