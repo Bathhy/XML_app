@@ -3,6 +3,7 @@ package com.example.ite_app
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.ImageButton
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
 import androidx.databinding.DataBindingUtil
@@ -83,14 +84,14 @@ class MainActivity : AppCompatActivity() {
 */
    override fun onCreate(savedInstanceState: Bundle?) {
        super.onCreate(savedInstanceState)
-//        enableEdgeToEdge()
+        enableEdgeToEdge()
        binding = DataBindingUtil.setContentView(this, R.layout.dashboard_activity)
        onInitBottomNavigationBar()
    }
-    private fun toggleThemeMode(isDarkMode: Boolean) {
+  /*  private fun toggleThemeMode(isDarkMode: Boolean) {
         if (isDarkMode) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-    }
+    }*/
     /* override fun onCreateOptionsMenu(menu: Menu): Boolean {
          // Inflate the menu; this adds items to the action bar if it is present.
          menuInflater.inflate(R.menu.menu_main, menu)

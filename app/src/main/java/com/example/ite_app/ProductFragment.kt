@@ -12,6 +12,7 @@ import com.example.ite_app.databinding.ProductFragmentBinding
 
 class ProductFragment: Fragment(R.layout.product_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         super.onViewCreated(view, savedInstanceState)
 
         onInit(view)
