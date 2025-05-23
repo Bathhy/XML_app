@@ -1,5 +1,6 @@
 package com.example.ite_app
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -11,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ite_app.client_side.ProductApiService
 import com.example.ite_app.client_side.retrofitClient
 import kotlinx.coroutines.launch
-
+const val keyParam = "product_data"
 class ProductFragment: Fragment(R.layout.product_fragment) {
     private lateinit var homeAdapter: HomeAdapter
 
@@ -22,7 +23,12 @@ class ProductFragment: Fragment(R.layout.product_fragment) {
     }
 
     private fun onInit(view: View) {
-        homeAdapter = HomeAdapter(emptyList())
+        homeAdapter = HomeAdapter(emptyList(), onItemClick = {
+            productData->
+            val intent = Intent(requireContext() , DetailActivity::class.java)
+            intent.putExtra(keyParam, productData)
+            startActivity(intent)
+        })
         val recycleView: RecyclerView = view.findViewById(R.id.secRecycle)
 
         val gridLayoutManager = GridLayoutManager(view.context, 2)

@@ -3,6 +3,7 @@
     android:id="@+id/detailRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:background="#FFFFFF">
 
     <!-- Product Image -->
@@ -33,10 +34,12 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="Back"
-            android:src="@drawable/ic_star"
+            android:src="@drawable/ic_arrow_back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/black" />
+
 
         <!-- Title -->
         <TextView
@@ -45,7 +48,7 @@
             android:layout_height="wrap_content"
             android:text="Product Name"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -90,7 +93,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity=""
+
                     >
 
                     <TextView
@@ -100,7 +103,7 @@
                         android:paddingBottom="8dp"
                         android:text="Product Description"
                         android:textSize="16sp"
-                        android:layout_weight="1f"
+                        android:layout_weight="1"
                         android:textStyle="bold" />
 
                     <LinearLayout

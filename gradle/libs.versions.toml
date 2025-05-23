@@ -12,6 +12,7 @@ navigationFragmentKtx = "2.8.9"
 navigationUiKtx = "2.8.9"
 retrofit = "2.7.2"
 smoothbottombar = "1.7.9"
+parcelize = "1.9.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -30,4 +31,5 @@ smoothbottombar = { module = "com.github.ibrahimsn98:SmoothBottomBar", version.r
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-parcelize = { id = "kotlin-parcelize", version = "parcelize" }
 

@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    kotlin("plugin.serialization") version "2.1.0"
 }
 
 android {
@@ -55,4 +56,7 @@ dependencies {
     implementation(libs.smoothbottombar)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
+
+    //coil image network
+    implementation("com.squareup.picasso:picasso:2.8")
 }
