@@ -83,10 +83,11 @@ class MainActivity : AppCompatActivity() {
     }
 */
    override fun onCreate(savedInstanceState: Bundle?) {
+
        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-       binding = DataBindingUtil.setContentView(this, R.layout.dashboard_activity)
+       binding = setContentView(this, R.layout.dashboard_activity)
        onInitBottomNavigationBar()
+       enableEdgeToEdge()
    }
   /*  private fun toggleThemeMode(isDarkMode: Boolean) {
         if (isDarkMode) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
